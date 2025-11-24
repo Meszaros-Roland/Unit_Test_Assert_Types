@@ -1,35 +1,63 @@
-# import module
-# from file import class
+import pytest
+from text_processor import TextProcessor
+
 
 
 def test_capitalize_text_equal():
     """1. Assert equal - egyenlőség ellenőrzés"""
-    pass
+    processor = TextProcessor()
+    result = processor.capitalize_text("Hello")
+
+    assert result == "HELLO"
 
 
 def test_capitalize_text_not_equal():
     """2. Assert not equal - nem egyenlő"""
-    pass
+    processor = TextProcessor()
+    result = processor.capitalize_text("hello")
+
+    assert result != "hello"
+    assert result != "world"
 
 
 def test_reverse_text_in():
     """3. Assert in - benne van"""
-    pass
+    processor = TextProcessor()
+    result = processor.reverse_text("hello")
+
+    assert "a" in result
+    assert "olleh" in result
 
 
 def test_reverse_text_not_in():
     """4. Assert not in - nincs benne"""
-    pass
+    processor = TextProcessor()
+    result = processor.reverse_text("hello")
+
+    assert "hello" not in result
+    assert "x" not in result
 
 
 def test_count_words_isinstance():
     """5. Assert isinstance - típus ellenőrzés"""
-    pass
+    processor = TextProcessor()
+    result = processor.count_words("hello world")
+
+    assert isinstance(result, int)
+    assert isinstance(result, (int, float))
+    assert not isinstance(result, str)
 
 
 def test_count_words_greater_less():
     """6. Assert >, <, >=, <= - összehasonlítás"""
-    pass
+    processor = TextProcessor()
+    result1 = processor.count_words("hello")
+    result2 = processor.count_words("hello world")
+    result3 = processor.count_words("hello world python")
+
+    assert result1 < result2
+    assert result2 < result3
+    assert result1 < result3
 
 
 def test_count_words_empty_string():
@@ -45,3 +73,5 @@ def test_is_palindrome_true_false():
 def test_remove_spaces_multiple_asserts():
     """9. Több assert egy tesztben"""
     pass
+
+
